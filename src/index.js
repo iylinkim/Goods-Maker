@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app';
+import FirebaseAuth from 'firebaseAuth';
 
-
+const firebaseAuth = new FirebaseAuth ();
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App firebaseAuth={firebaseAuth}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

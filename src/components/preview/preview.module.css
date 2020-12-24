@@ -1,0 +1,17 @@
+@value mediaQuery from 'common/size.css';
+
+.preview {
+  width: 50%;
+}
+
+.title {
+  text-align: center;
+  padding-bottom: 30px;
+  font-size: 2em;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .preview {
+    width: 100%;
+  }
+}

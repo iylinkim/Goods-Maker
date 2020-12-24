@@ -39,14 +39,15 @@ const Login = ({firebaseAuth}) => {
   return (
     <div className={styles.container}>
       <div className={styles.login}>
-        <h2 className={styles.title}>LOGIN</h2>
+        <h2 className={styles.title}>{newAccount ? "CREATE ACCOUNT" : "LOG IN"}</h2>
         <form onSubmit={onSubmit} className={styles.form}>
           <input
             type='text'
             placeholder='Email'
             name='email'
             value={email}
-            onChange={onChange} className={styles.input}
+            onChange={onChange}
+            className={styles.input}
             required
           />
           <input
@@ -54,20 +55,34 @@ const Login = ({firebaseAuth}) => {
             placeholder='Password'
             name='password'
             value={password}
-            onChange={onChange} className={styles.input}
+            onChange={onChange}
+            className={styles.input}
             required
           />
           <input
+            className={`${styles.input} ${styles.submit}`}
             type='submit'
-            value={newAccount ? "Create Account" : "Log In"} className={`${styles.input} ${styles.submit}`}
+            value={newAccount ? "Create Account" : "Log In"}
           />
         </form>
         <div className={styles.social}>
-          <button className={styles.button} name='Google' onClick={onSocialLogin}>
+          <button
+            className={styles.button}
+            name='Google'
+            onClick={onSocialLogin}>
             Continue with Google
+            <i>
+              <img className={styles.icon} src='/images/google.png' alt='' />
+            </i>
           </button>
-          <button className={styles.button} name='Github' onClick={onSocialLogin}>
+          <button
+            className={styles.button}
+            name='Github'
+            onClick={onSocialLogin}>
             Continue with Github
+            <i>
+              <img className={styles.icon} src='/images/github.png' alt='' />
+            </i>
           </button>
         </div>
         <p className={styles.toggle} onClick={toggleAccount}>

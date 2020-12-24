@@ -1,0 +1,39 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #f0f4f6;
+  padding: 10px 20px;
+}
+.select,
+.input,
+.textarea {
+  border: none;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  text-indent: 10px;
+}
+.input {
+  margin: 0 15px;
+}
+.textarea {
+  flex: 1 1 40%;
+}
+.icon {
+  display: block;
+  max-width: 20px;
+  margin-right: 5px;
+  font-size: 1.6em;
+  color: #1380c9;
+}
+
+.button {
+  margin-top: 15px;
+  width: 50%;
+}

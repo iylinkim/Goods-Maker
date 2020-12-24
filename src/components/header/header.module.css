@@ -1,4 +1,33 @@
-.header{
-    height:80px;
-    background-color:gold;
+@value makerSkyBlue from 'common/colors.css';
+
+.header {
+  height: 80px;
+  line-height: 80px;
+  padding: 0 5%;
+  margin-bottom:40px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  position:relative;
+}
+
+.title{
+    display:flex;
+    align-items:center;
+    font-size:2rem;
+}
+
+.logo {
+  max-width: 40px;
+  margin-right:20px;
+}
+
+.logout{
+  display:block;
+  padding: 3px 10px;
+  border:none;
+  border-radius:50px;
+  font-weight:700;
+  background-color:makerSkyBlue;
+  position:absolute;
+  right:5%;
+  top:20px;
 }

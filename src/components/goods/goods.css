@@ -1,0 +1,41 @@
+#clipped {
+  -webkit-clip-path: url(#myPath);
+  clip-path: url(#myPath);
+}
+
+.goods {
+  outline: 1px solid red;
+  position: relative;
+  height: 280px;
+  margin-bottom: 30px;
+}
+
+.img {
+  outline: 1px solid blue;
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.img > img {
+  width: 100%;
+  height: 100%;
+}
+
+.texts {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg {
+  
+}

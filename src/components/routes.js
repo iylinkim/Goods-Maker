@@ -3,14 +3,14 @@ import {HashRouter as Router, Switch, Route} from "react-router-dom";
 import Home from "./home/home";
 import Login from "./login/login";
 
-const AppRouter = ({loggedIn, firebaseAuth}) => {
+const AppRouter = ({loggedIn, firebaseAuth, ImageInput}) => {
   return (
     <Router>
       <Switch>
         {loggedIn ? (
           <>
             <Route exact path='/'>
-              <Home />
+              <Home ImageInput={ImageInput} firebaseAuth={firebaseAuth}/>
             </Route>
           </>
         ) : (

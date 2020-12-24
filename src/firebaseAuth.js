@@ -1,7 +1,7 @@
 import {firebaseInstance, authService} from "fbase";
 
 class FirebaseAuth {
-  createAccount(email, password){
+  createAccount(email, password) {
     return authService.createUserWithEmailAndPassword(email, password);
   }
 
@@ -12,6 +12,10 @@ class FirebaseAuth {
   socialLogin(authProvider) {
     const provider = new firebaseInstance.auth[`${authProvider}AuthProvider`]();
     return authService.signInWithPopup(provider);
+  }
+
+  logout() {
+    authService.signOut();
   }
 }
 

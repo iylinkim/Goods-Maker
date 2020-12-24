@@ -3,7 +3,8 @@ import {useState, useEffect} from "react";
 import "./app.css";
 import {authService} from "fbase";
 
-function App({firebaseAuth}) {
+function App({firebaseAuth, ImageInput}) {
+  
   const [init, setInit] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -20,7 +21,7 @@ function App({firebaseAuth}) {
   return (
     <section>
       {init ? (
-        <AppRouter loggedIn={loggedIn} firebaseAuth={firebaseAuth} />
+        <AppRouter loggedIn={loggedIn} firebaseAuth={firebaseAuth} ImageInput={ImageInput}/>
       ) : (
         "Initializing..."
       )}

@@ -1,0 +1,35 @@
+@value makerBlue, makerLightBlue from 'common/colors.css';
+
+.input {
+  display: none;
+}
+
+.buttons {
+  width: 100%;
+}
+
+.file {
+  width: 100%;
+  line-height: 40px;
+  background: #ddd;
+  border: none;
+}
+
+.loading {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid makerBlue;
+  border-radius: 50%;
+  border-top: 2px solid makerLightBlue;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

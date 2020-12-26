@@ -48,3 +48,5 @@
 [1223/142807.082:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
 [1223/220428.135:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\user\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\bc1a7073-d882-4b6c-9584-76d393abe7a2: 지정된 경로를 찾을 수 없습니다. (0x3)
 [1224/105032.192:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+[1226/174343.760:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\user\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\ae7619a8-a45d-469e-a902-c2baff4ff5b5: 지정된 경로를 찾을 수 없습니다. (0x3)
+[1226/174343.764:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)

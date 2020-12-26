@@ -32,10 +32,14 @@ const EditForm = ({info, updateInfo, deleteInfo, ImageInput}) => {
     <div className={styles.container}>
       <form className={styles.form}>
         <i className={`fas ${getGoodsIcon(category)} ${styles.icon}`}></i>
-        <select className={styles.select} onChange={onChange} name='category' value={category}>
+        <select
+          className={styles.select}
+          onChange={onChange}
+          name='category'
+          value={category}>
           <option value='shirt'>shirt</option>
           <option value='cup'>cup</option>
-          <option value='phone case'>phone case</option>
+          <option value='phone case'>phone</option>
           <option value='poster'>poster</option>
         </select>
         <input
@@ -65,7 +69,7 @@ function getGoodsIcon(item) {
       return "fa-tshirt";
     case "cup":
       return "fa-coffee";
-    case "phone case":
+    case "phone":
       return "fa-mobile-alt";
     case "poster":
       return "fa-scroll";

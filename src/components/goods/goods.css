@@ -1,18 +1,34 @@
-#clipped {
+/* #clipped {
   -webkit-clip-path: url(#myPath);
   clip-path: url(#myPath);
+} */
+#clipped_shirt {
+  -webkit-clip-path: url(#myPath);
+  clip-path: url(#myPath_shirt);
+}
+#clipped_cup {
+  -webkit-clip-path: url(#myPath);
+  clip-path: url(#myPath_cup);
+}
+#clipped_phone {
+  -webkit-clip-path: url(#myPath);
+  clip-path: url(#myPath_phone);
+}
+#clipped_poster {
+  -webkit-clip-path: url(#myPath);
+  clip-path: url(#myPath_poster);
 }
 
 .goods {
   outline: 1px solid red;
   position: relative;
-  height: 280px;
+  height: 350px;
   margin-bottom: 30px;
 }
 
 .img {
   outline: 1px solid blue;
-  width: 30%;
+  width: 40%;
   height: 100%;
   position: absolute;
   left: 50%;
@@ -26,6 +42,9 @@
 }
 
 .texts {
+  width: 15%;
+  height: 100%;
+  outline:1px solid gold;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -36,6 +55,18 @@
   align-items: center;
 }
 
-.svg {
-  
+.texts.cup{
+  width:28%;
+  left:45%;
+  transform: translate(-45%, -50%);
+}
+
+.texts.poster{
+  width:29%;
+}
+
+.title, .text{
+  display:block;
+  width:100%;
+  overflow:hidden;
 }

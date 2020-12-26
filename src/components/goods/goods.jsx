@@ -5,13 +5,40 @@ const Goods = ({info}) => {
   const {category, title, text, fileURL} = info;
   const defaultImg = "/images/default.jpg";
   return (
+    // <li className='goods'>
+    //   <p className='img'>
+    //     <img id='clipped' src={fileURL || defaultImg} alt='MDN logo' />
+    //   </p>
+    //   <svg width='0' height='0'>
+    //     <defs>
+    //       <clipPath id='myPath' clipPathUnits='objectBoundingBox'>
+    //         <path
+    //           className='svg'
+    //           fill='#FFFFFF'
+    //           stroke='#000000'
+    //           strokeWidth='1.5794'
+    //           strokeMiterlimit='10'
+    //           d={getSvg(category)}
+    //         />
+    //       </clipPath>
+    //     </defs>
+    //   </svg>
+    //   <div className='texts'>
+    //     <strong>{title}</strong>
+    //     <p>{text}</p>
+    //   </div>
+    // </li>
     <li className='goods'>
       <p className='img'>
-        <img id='clipped' src={fileURL || defaultImg} alt='MDN logo' />
+        <img
+          id={`clipped_${category}`}
+          src={fileURL || defaultImg}
+          alt='MDN logo'
+        />
       </p>
       <svg width='0' height='0'>
         <defs>
-          <clipPath id='myPath' clipPathUnits='objectBoundingBox'>
+          <clipPath id={`myPath_${category}`} clipPathUnits='objectBoundingBox'>
             <path
               className='svg'
               fill='#FFFFFF'
@@ -23,9 +50,9 @@ const Goods = ({info}) => {
           </clipPath>
         </defs>
       </svg>
-      <div className='texts'>
-        <strong>{title}</strong>
-        <p>{text}</p>
+      <div className={`texts ${category}`}>
+        <strong className='title'>{title}</strong>
+        <p className='text'>{text}</p>
       </div>
     </li>
   );
@@ -44,7 +71,7 @@ function getSvg(category) {
       return shirtPath;
     case "cup":
       return cupPath;
-    case "phone case":
+    case "phone":
       return phonePath;
     case "poster":
       return posterPath;

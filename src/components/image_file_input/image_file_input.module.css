@@ -1,4 +1,4 @@
-@value makerBlue, makerLightBlue from 'common/colors.css';
+@value makerBlue, makerLightBlue, makerGrey, makerPurple from 'common/colors.css';
 
 .input {
   display: none;
@@ -6,13 +6,23 @@
 
 .buttons {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .file {
   width: 100%;
   line-height: 40px;
-  background: #ddd;
   border: none;
+}
+
+.grey{
+  background-color:makerGrey;
+}
+
+.purple{
+  background-color:makerPurple;
 }
 
 .loading {

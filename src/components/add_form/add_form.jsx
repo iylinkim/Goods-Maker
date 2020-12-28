@@ -9,8 +9,6 @@ const AddForm = ({ImageInput, addInfo}) => {
   const titleRef = useRef();
   const textRef = useRef();
 
-  console.log(categoryRef.current.value);
-
   const [file, setFile] = useState({
     fileName: null,
     fileURL: null,
@@ -23,7 +21,7 @@ const AddForm = ({ImageInput, addInfo}) => {
     });
   };
 
-  const onSubmit = event => { 
+  const onSubmit = event => {
     event.preventDefault();
     const info = {
       id: Date.now(),
@@ -41,7 +39,10 @@ const AddForm = ({ImageInput, addInfo}) => {
   return (
     <div className={styles.container}>
       <form ref={formRef} className={styles.form}>
-        <i className={`fas fa-question-circle ${styles.icon} ${getGoodsIcon(categoryRef)}`}></i>
+        <i
+          className={`fas fa-question-circle ${styles.icon} ${getGoodsIcon(
+            categoryRef
+          )}`}></i>
         <select ref={categoryRef} className={styles.select} name='category'>
           <option value='shirt'>shirt</option>
           <option value='cup'>cup</option>

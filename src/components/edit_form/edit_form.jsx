@@ -3,7 +3,7 @@ import ImageFileInput from "components/image_file_input/image_file_input";
 import React, {useState} from "react";
 import styles from "./edit_form.module.css";
 
-const EditForm = ({info, updateInfo, deleteInfo, ImageInput}) => {
+const EditForm = ({info, updateInfo, deleteInfo, ImageInput, fbDatabase}) => {
   const {category, title, text, fileName} = info;
   const onChange = event => {
     if (event.currntTarget === null) {
@@ -14,6 +14,7 @@ const EditForm = ({info, updateInfo, deleteInfo, ImageInput}) => {
       ...info,
       [event.target.name]: event.target.value,
     });
+    
   };
 
   const onFileChange = file => {

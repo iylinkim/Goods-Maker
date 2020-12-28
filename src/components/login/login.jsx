@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from "react";
+import {useHistory} from "react-router-dom";
 import styles from "./login.module.css";
 
 const Login = ({firebaseAuth}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newAccount, setNewAccount] = useState(false);
+  const history = useHistory();
 
   const onChange = event => {
     const {
@@ -24,7 +26,11 @@ const Login = ({firebaseAuth}) => {
       firebaseAuth.createAccount(email, password);
     } else {
       //Log In
-      firebaseAuth.login(email, password);
+      firebaseAuth.login(email, password).then(data => {
+        return history.push({
+          state: {id: data.user.uid},
+        });
+      });
     }
   };
 
@@ -33,13 +39,19 @@ const Login = ({firebaseAuth}) => {
   };
 
   const onSocialLogin = event => {
-    firebaseAuth.socialLogin(event.target.name);
+    firebaseAuth.socialLogin(event.target.name).then(data => {
+      return history.push({
+        state: {id: data.user.uid},
+      });
+    });
   };
 
   return (
     <div className={styles.container}>
       <div className={styles.login}>
-        <h2 className={styles.title}>{newAccount ? "CREATE ACCOUNT" : "LOG IN"}</h2>
+        <h2 className={styles.title}>
+          {newAccount ? "CREATE ACCOUNT" : "LOG IN"}
+        </h2>
         <form onSubmit={onSubmit} className={styles.form}>
           <input
             type='text'

@@ -3,11 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./app";
 import FirebaseAuth from "firebaseAuth";
+import FirebaseDatabase from "firebaseData";
 import ImageFileInput from "components/image_file_input/image_file_input";
 import ImageUploader from "imageUploader";
 import "@fortawesome/fontawesome-free/js/all.js";
 
 const firebaseAuth = new FirebaseAuth();
+const fbDatabase = new FirebaseDatabase();
 const imageUploader = new ImageUploader();
 const ImageInput = props => (
   <ImageFileInput {...props} imageUploader={imageUploader} />
@@ -15,7 +17,11 @@ const ImageInput = props => (
 
 ReactDOM.render(
   <React.StrictMode>
-    <App firebaseAuth={firebaseAuth} ImageInput={ImageInput} />
+    <App
+      firebaseAuth={firebaseAuth}
+      fbDatabase={fbDatabase}
+      ImageInput={ImageInput}
+    />
   </React.StrictMode>,
   document.getElementById("root")
 );

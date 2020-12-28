@@ -44,7 +44,8 @@
 .texts {
   width: 15%;
   height: 100%;
-  outline:1px solid gold;
+  text-align: center;
+  outline: 1px solid gold;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -54,19 +55,36 @@
   justify-content: center;
   align-items: center;
 }
- 
-.texts.cup{
-  width:28%;
-  left:45%;
+
+.texts.shirt {
+  width: 19%;
+  height: 60%;
+  top: 63%;
+  transform: translate(-50%, -63%);
+}
+
+.texts.cup {
+  width: 28%;
+  left: 45%;
   transform: translate(-45%, -50%);
 }
 
-.texts.poster{
-  width:29%;
+.texts.phone{
+  width:19%;
+  height:73%;
+  left:49%;
+  top:88%;
+  transform: translate(-49%, -88%);
 }
 
-.title, .text{
-  display:block;
-  width:100%;
+.texts.poster {
+  width: 29%;
+}
+
+.title,
+.text {
+  display: block;
+  width: 100%;
   overflow:hidden;
+  white-space: break-spaces;
 }

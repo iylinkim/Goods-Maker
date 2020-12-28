@@ -1,10 +1,9 @@
 import AppRouter from "components/routes";
 import {useState, useEffect} from "react";
-import "./app.css";
+import styles from "app.module.css";
 import {authService} from "fbase";
 
-function App({firebaseAuth, ImageInput}) {
-  
+function App({firebaseAuth, ImageInput, fbDatabase}) {
   const [init, setInit] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -21,9 +20,18 @@ function App({firebaseAuth, ImageInput}) {
   return (
     <section>
       {init ? (
-        <AppRouter loggedIn={loggedIn} firebaseAuth={firebaseAuth} ImageInput={ImageInput}/>
+        <AppRouter
+          loggedIn={loggedIn}
+          firebaseAuth={firebaseAuth}
+          ImageInput={ImageInput}
+          fbDatabase={fbDatabase}
+        />
       ) : (
-        "Initializing..."
+        <img
+          className={styles.loading}
+          src='/images/page_loading.gif'
+          alt='page loading'
+        />
       )}
     </section>
   );

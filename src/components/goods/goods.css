@@ -20,15 +20,13 @@
 }
 
 .goods {
-  outline: 1px solid red;
   position: relative;
-  height: 350px;
+  height: 400px;
   margin-bottom: 30px;
 }
 
 .img {
-  outline: 1px solid blue;
-  width: 40%;
+  width: 70%;
   height: 100%;
   position: absolute;
   left: 50%;
@@ -45,7 +43,6 @@
   width: 15%;
   height: 100%;
   text-align: center;
-  outline: 1px solid gold;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -57,34 +54,45 @@
 }
 
 .texts.shirt {
-  width: 19%;
+  width: 34%;
   height: 60%;
   top: 63%;
   transform: translate(-50%, -63%);
 }
 
 .texts.cup {
-  width: 28%;
-  left: 45%;
-  transform: translate(-45%, -50%);
+  width: 50%;
+  height: 60%;
+  left: 39%;
+  top: 55%;
+  transform: translate(-39%, -55%);
 }
 
-.texts.phone{
-  width:19%;
-  height:73%;
-  left:49%;
-  top:88%;
+.texts.phone {
+  width: 32%;
+  height: 73%;
+  left: 49%;
+  top: 88%;
   transform: translate(-49%, -88%);
 }
 
 .texts.poster {
-  width: 29%;
+  width: 51%;
+  height: 98%;
 }
 
 .title,
 .text {
   display: block;
   width: 100%;
-  overflow:hidden;
+  overflow: hidden;
   white-space: break-spaces;
+}
+
+.img:after {
+  /* content:"";
+  display:block;
+  width:50px;
+  height:50px;
+  background-color:pink; */
 }

@@ -8,23 +8,24 @@ function App({firebaseAuth, ImageInput, fbDatabase}) {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    authService.onAuthStateChanged(user => {
-      if (user) {
-        setLoggedIn(true);
-      } else {
-        setLoggedIn(false);
-      }
-      setInit(true);
-    });
+    // authService.onAuthStateChanged(user => {
+    //   if (user) {
+    //     setLoggedIn(true);
+    //   } else {
+    //     setLoggedIn(false);
+    //   }
+    //   setInit(true);
+    // });
   });
   return (
     <section>
-      {init ? (
+      {/* {init ? (
         <AppRouter
           loggedIn={loggedIn}
           firebaseAuth={firebaseAuth}
           ImageInput={ImageInput}
           fbDatabase={fbDatabase}
+          authService={authService}
         />
       ) : (
         <img
@@ -32,7 +33,14 @@ function App({firebaseAuth, ImageInput, fbDatabase}) {
           src='/images/page_loading.gif'
           alt='page loading'
         />
-      )}
+      )} */}
+      <AppRouter
+          loggedIn={loggedIn}
+          firebaseAuth={firebaseAuth}
+          ImageInput={ImageInput}
+          fbDatabase={fbDatabase}
+          authService={authService}
+        />
     </section>
   );
 }

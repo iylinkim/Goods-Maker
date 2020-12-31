@@ -2,16 +2,22 @@ import React, {useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
 import styles from "./login.module.css";
 
-const Login = ({firebaseAuth}) => {
+const Login = ({authService, firebaseAuth}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newAccount, setNewAccount] = useState(false);
   const history = useHistory();
-
+  const goToHome = userId => {
+    history.push({
+      pathname:"/home",
+      state: {id: userId},
+    });
+  };
   const onChange = event => {
     const {
       target: {name, value},
     } = event;
+
     if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
@@ -26,11 +32,9 @@ const Login = ({firebaseAuth}) => {
       firebaseAuth.createAccount(email, password);
     } else {
       //Log In
-      firebaseAuth.login(email, password).then(data => {
-        return history.push({
-          state: {id: data.user.uid},
-        });
-      });
+      firebaseAuth //
+        .login(email, password)
+        .then(data => goToHome(data.user.uid));
     }
   };
 
@@ -39,12 +43,14 @@ const Login = ({firebaseAuth}) => {
   };
 
   const onSocialLogin = event => {
-    firebaseAuth.socialLogin(event.target.name).then(data => {
-      return history.push({
-        state: {id: data.user.uid},
-      });
-    });
+    firebaseAuth //
+      .socialLogin(event.target.name)
+      .then(data => goToHome(data.user.uid));
   };
+
+  useEffect(() => {
+    authService.onAuthStateChanged(user => user && goToHome(user.uid));
+  });
 
   return (
     <div className={styles.container}>

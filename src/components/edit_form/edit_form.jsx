@@ -1,6 +1,5 @@
 import Button from "components/button/button";
-import ImageFileInput from "components/image_file_input/image_file_input";
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import styles from "./edit_form.module.css";
 
 const EditForm = ({info, updateInfo, deleteInfo, ImageInput, fbDatabase}) => {
@@ -14,7 +13,6 @@ const EditForm = ({info, updateInfo, deleteInfo, ImageInput, fbDatabase}) => {
       ...info,
       [event.target.name]: event.target.value,
     });
-    
   };
 
   const onFileChange = file => {
@@ -29,18 +27,25 @@ const EditForm = ({info, updateInfo, deleteInfo, ImageInput, fbDatabase}) => {
     event.preventDefault();
     deleteInfo(info);
   };
+
+  const selectRef = useRef();
+  const colorRef = useRef();
+
+  
   return (
     <div className={styles.container}>
+      <p></p>
       <form className={styles.form}>
         <i className={`fas ${getGoodsIcon(category)} ${styles.icon}`}></i>
         <select
           className={styles.select}
+          ref={selectRef}
           onChange={onChange}
           name='category'
           value={category}>
           <option value='shirt'>shirt</option>
           <option value='cup'>cup</option>
-          <option value='phone case'>phone</option>
+          <option value='phone'>phone</option>
           <option value='poster'>poster</option>
         </select>
         <input
@@ -55,6 +60,55 @@ const EditForm = ({info, updateInfo, deleteInfo, ImageInput, fbDatabase}) => {
           name='text'
           value={text}
           onChange={onChange}></textarea>
+        {/* <input
+          type='number'
+          min='16'
+          max='50'
+          step='1'
+          placeholder='font size'
+        />
+        <ul className={styles.colors}>
+          <li
+            ref={colorRef}
+            onClick={getColor}
+            className={`${styles.color} ${styles.black}`}
+            name='black'></li>
+          <li
+            ref={colorRef}
+            onClick={getColor}
+            className={`${styles.color} ${styles.white}`}
+            name='white'></li>
+          <li
+            ref={colorRef}
+            onClick={getColor}
+            className={`${styles.color} ${styles.red}`}
+            name='red'></li>
+          <li
+            ref={colorRef}
+            onClick={getColor}
+            className={`${styles.color} ${styles.pink}`}
+            name='pink'></li>
+          <li
+            ref={colorRef}
+            onClick={getColor}
+            className={`${styles.color} ${styles.orange}`}
+            name='orange'></li>
+          <li
+            ref={colorRef}
+            onClick={getColor}
+            className={`${styles.color} ${styles.yellow}`}
+            name='yellow'></li>
+          <li
+            ref={colorRef}
+            onClick={getColor}
+            className={`${styles.color} ${styles.green}`}
+            name='green'></li>
+          <li
+            ref={colorRef}
+            onClick={getColor}
+            className={`${styles.color} ${styles.blue}`}
+            name='blue'></li>
+        </ul> */}
         <div className={styles.button}>
           <ImageInput name={fileName} onFileChange={onFileChange} />
         </div>
@@ -67,13 +121,13 @@ const EditForm = ({info, updateInfo, deleteInfo, ImageInput, fbDatabase}) => {
 function getGoodsIcon(item) {
   switch (item) {
     case "shirt":
-      return "fa-tshirt";
+      return "fas fa-tshirt";
     case "cup":
-      return "fa-coffee";
+      return "fas fa-coffee";
     case "phone":
-      return "fa-mobile-alt";
+      return "fas fa-mobile-alt";
     case "poster":
-      return "fa-scroll";
+      return "fas fa-scroll";
   }
 }
 

@@ -19,6 +19,9 @@
   border-bottom: 1px solid #ccc;
   text-indent: 10px;
 }
+.select {
+  flex: 0.3;
+}
 .input {
   margin: 0 15px;
 }
@@ -39,6 +42,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
+.button:hover {
+  opacity: 0.8;
+}
 
+.color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.color.white{
+  background-color:white;
+}
+.color.red{
+  background-color:red;
+}
+.color.pink{
+  background-color:pink;
+}
+.color.orange{
+  background-color:orange;
+}
+.color.yellow{
+  background-color:yellow;
+}
+.color.green{
+  background-color:green;
+}
+.color.blue{
+  background-color:blue;
+}

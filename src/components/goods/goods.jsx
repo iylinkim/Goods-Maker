@@ -1,33 +1,10 @@
-import React, {useRef} from "react";
+import React, {memo, useRef} from "react";
 import "./goods.css";
 
-const Goods = ({info}) => {
+const Goods = memo(({info}) => {
   const {category, title, text, fileURL} = info;
   const defaultImg = "/images/default.jpg";
   return (
-    // <li className='goods'>
-    //   <p className='img'>
-    //     <img id='clipped' src={fileURL || defaultImg} alt='MDN logo' />
-    //   </p>
-    //   <svg width='0' height='0'>
-    //     <defs>
-    //       <clipPath id='myPath' clipPathUnits='objectBoundingBox'>
-    //         <path
-    //           className='svg'
-    //           fill='#FFFFFF'
-    //           stroke='#000000'
-    //           strokeWidth='1.5794'
-    //           strokeMiterlimit='10'
-    //           d={getSvg(category)}
-    //         />
-    //       </clipPath>
-    //     </defs>
-    //   </svg>
-    //   <div className='texts'>
-    //     <strong>{title}</strong>
-    //     <p>{text}</p>
-    //   </div>
-    // </li>
     <li className='goods'>
       <p className='img'>
         <img
@@ -36,7 +13,7 @@ const Goods = ({info}) => {
           alt='MDN logo'
         />
       </p>
-      <svg width='0' height='0'>
+      <svg className='svg' width='0' height='0'>
         <defs>
           <clipPath id={`myPath_${category}`} clipPathUnits='objectBoundingBox'>
             <path
@@ -56,7 +33,7 @@ const Goods = ({info}) => {
       </div>
     </li>
   );
-};
+});
 const shirtPath =
   "M0.44,0.36 M0.82,0.64H0.9 M0.73,0.35 M0.27,0.35 M0.4,0.5 M0.09,0.73L0.08,0.65c0,0,0,0,0,0L0.04,0.38l0,0   c0,0,0,0,0-0.01c0.05-0.08,0.09-0.15,0.15-0.2C0.24,0.13,0.3,0.1,0.37,0.1c0.01,0,0.01,0,0.01,0.01C0.39,0.17,0.42,0.2,0.45,0.22   c0.02,0.01,0.04,0.01,0.06,0.01c0.02,0,0.04-0.01,0.05-0.02c0.03-0.02,0.06-0.05,0.06-0.1l0,0c0-0.01,0-0.01,0.01-0.01   c0.07,0,0.14,0.03,0.19,0.08c0.05,0.05,0.1,0.12,0.14,0.2l0,0c0,0,0,0,0,0.01L0.92,0.65l0,0L0.91,0.73c0,0.01,0,0.01-0.01,0.01H0.8   v0h0c-0.01,0-0.01,0-0.01-0.01l0-0.08l0,0c0,0,0,0,0,0c0,0,0,0,0,0l0-0.19L0.75,0.38v0.4v0.07c0,0.01,0,0.01-0.01,0.01H0.27   c-0.01,0-0.01,0-0.01-0.01V0.78V0.39L0.2,0.45l0,0.27c0,0,0,0,0,0c0,0.01,0,0.01-0.01,0.01L0.09,0.73L0.09,0.73   C0.09,0.74,0.09,0.73,0.09,0.73L0.09,0.73z";
 const cupPath =

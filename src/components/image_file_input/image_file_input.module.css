@@ -15,14 +15,15 @@
   width: 100%;
   line-height: 40px;
   border: none;
+  cursor: pointer; 
 }
 
-.grey{
-  background-color:makerGrey;
+.grey {
+  background-color: makerGrey;
 }
 
-.purple{
-  background-color:makerPurple;
+.purple {
+  background-color: #c3daf7;
 }
 
 .loading {

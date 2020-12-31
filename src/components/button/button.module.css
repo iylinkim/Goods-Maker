@@ -1,9 +1,14 @@
 .button {
   display: block;
-  margin-top:15px;
+  margin-top: 15px;
   width: 50%;
   height: 40px;
   line-height: 40px;
   background-color: #0099ff;
   border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.8;
 }

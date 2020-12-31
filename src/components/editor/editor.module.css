@@ -1,7 +1,12 @@
 @value mediaQuery from 'common/size.css';
+@value makerLightGrey from 'common/colors.css';
+
 
 .editor {
-  width: 50%;
+  width: 65%;
+  margin-bottom:50px;
+  border-right:1px solid makerLightGrey;
+  overflow-y:auto;
 }
 
 .title {

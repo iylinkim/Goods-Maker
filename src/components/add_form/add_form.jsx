@@ -1,13 +1,13 @@
 import Button from "components/button/button";
-import ImageFileInput from "components/image_file_input/image_file_input";
-import React, {useRef, useState} from "react";
+import React, {useRef, useState, memo} from "react";
 import styles from "./add_form.module.css";
 
-const AddForm = ({ImageInput, addInfo}) => {
+const AddForm = memo(({ImageInput, addInfo}) => {
   const formRef = useRef();
   const categoryRef = useRef();
   const titleRef = useRef();
   const textRef = useRef();
+  const sizeRef = useRef();
 
   const [file, setFile] = useState({
     fileName: null,
@@ -30,6 +30,8 @@ const AddForm = ({ImageInput, addInfo}) => {
       text: textRef.current.value || "",
       fileName: file.fileName || "",
       fileURL: file.fileURL || "",
+      // fontSize: sizeRef.current.value || "",
+      // fontColor: color || "",
     };
 
     formRef.current.reset();
@@ -40,9 +42,8 @@ const AddForm = ({ImageInput, addInfo}) => {
     <div className={styles.container}>
       <form ref={formRef} className={styles.form}>
         <i
-          className={`fas fa-question-circle ${styles.icon} ${getGoodsIcon(
-            categoryRef
-          )}`}></i>
+          className={`fas fa-question-circle ${styles.icon} 
+          ${getGoodsIcon(categoryRef)}`}></i>
         <select ref={categoryRef} className={styles.select} name='category'>
           <option value='shirt'>shirt</option>
           <option value='cup'>cup</option>
@@ -61,6 +62,49 @@ const AddForm = ({ImageInput, addInfo}) => {
           className={styles.textarea}
           name='text'
           placeholder='text'></textarea>
+        {/* <input
+          ref={sizeRef}
+          type='number'
+          min='16'
+          max='50'
+          step='1'
+          placeholder='font size'
+        />
+        <ul className={styles.colors}>
+          <li
+            ref={colorRef}
+            onClick={getColor}
+            className={`${styles.color} ${styles.black}`}
+            name='black'></li>
+          <li
+            onClick={getColor}
+            className={`${styles.color} ${styles.white}`}
+            name='white'></li>
+          <li
+            onClick={getColor}
+            className={`${styles.color} ${styles.red}`}
+            name='red'></li>
+          <li
+            onClick={getColor}
+            className={`${styles.color} ${styles.pink}`}
+            name='pink'></li>
+          <li
+            onClick={getColor}
+            className={`${styles.color} ${styles.orange}`}
+            name='orange'></li>
+          <li
+            onClick={getColor}
+            className={`${styles.color} ${styles.yellow}`}
+            name='yellow'></li>
+          <li
+            onClick={getColor}
+            className={`${styles.color} ${styles.green}`}
+            name='green'></li>
+          <li
+            onClick={getColor}
+            className={`${styles.color} ${styles.blue}`}
+            name='blue'></li>
+        </ul> */}
         <div className={styles.button}>
           <ImageInput name={file.fileName} onFileChange={onFileChange} />
         </div>
@@ -68,7 +112,7 @@ const AddForm = ({ImageInput, addInfo}) => {
       </form>
     </div>
   );
-};
+});
 
 function getGoodsIcon(item) {
   switch (item) {

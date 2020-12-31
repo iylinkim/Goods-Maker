@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./app";
@@ -11,8 +11,10 @@ import "@fortawesome/fontawesome-free/js/all.js";
 const firebaseAuth = new FirebaseAuth();
 const fbDatabase = new FirebaseDatabase();
 const imageUploader = new ImageUploader();
-const ImageInput = props => (
-  <ImageFileInput {...props} imageUploader={imageUploader} />
+const ImageInput = memo(
+  props => (
+    <ImageFileInput {...props} imageUploader={imageUploader} />
+  )
 );
 
 ReactDOM.render(

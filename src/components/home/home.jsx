@@ -7,9 +7,11 @@ import {useHistory} from "react-router-dom";
 import styles from "./home.module.css";
 
 const Home = ({firebaseAuth, fbDatabase, ImageInput}) => {
-  const {location:{state:{id}}} = useHistory(); //history에 저장된 state안의 id
+  const {
+    location: {state},
+  } = useHistory(); //history에 저장된 state안의 id
   const [infos, setInfos] = useState({});
-  const [userId, setUserId] = useState(id && id);
+  const [userId, setUserId] = useState(state && state.id);
 
   const createOrUpdateInfo = info => {
     setInfos(infos => {
@@ -17,7 +19,7 @@ const Home = ({firebaseAuth, fbDatabase, ImageInput}) => {
       updated[info.id] = info;
       return updated;
     });
-    
+
     fbDatabase.saveGoods(userId, info);
   };
 
@@ -32,11 +34,12 @@ const Home = ({firebaseAuth, fbDatabase, ImageInput}) => {
   };
 
   useEffect(() => {
-    if(!userId){
+    if (!userId) {
       return;
     }
 
     const stopSync = fbDatabase.syncGoods(userId, infos => {
+      console.log(1);
       setInfos(infos);
     });
     return () => stopSync();

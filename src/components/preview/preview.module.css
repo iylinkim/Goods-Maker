@@ -1,7 +1,9 @@
 @value mediaQuery from 'common/size.css';
 
 .preview {
-  width: 50%;
+  width: 35%;
+  margin-bottom:50px;
+  overflow-y: auto;
 }
 
 .title {
